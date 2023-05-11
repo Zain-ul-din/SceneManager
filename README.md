@@ -4,6 +4,7 @@
 The Real-Time Unity SceneManager is a utility that keeps track of the names of scenes in Unity projects and generates scripts that can be utilized for code completion purposes. With this tool, developers can quickly navigate between scenes in their Unity projects without having to manually switch between them.
 
 ### [View Demo](https://www.youtube.com/watch?v=uomME14JcSc)
+### [Download](Zain-ul-din/Unity-SceneManager/raw/master/SceneManager.unitypackage)
 
 ## Motivation
 
