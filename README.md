@@ -6,6 +6,11 @@ The Real-Time Unity SceneManager is a utility that keeps track of the names of s
 ### [View Demo](https://www.youtube.com/watch?v=uomME14JcSc)
 ### [Download](Zain-ul-din/Unity-SceneManager/raw/master/SceneManager.unitypackage)
 
+**Note!**
+>limitation: Rewrite the scene name by substituting all spaces with underscores.
+>
+>Example:- My Scene => My_Scene
+
 ## Motivation
 
 Managing scene names in Unity can be a daunting task. To help alleviate this, I have created a package that automates the process of fetching all scenes that have been added to the build and provides code completion for them. This package simplifies scene management, making it more accessible to beginners and reducing the likelihood of errors in scene naming.
