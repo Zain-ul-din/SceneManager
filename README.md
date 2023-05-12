@@ -15,6 +15,22 @@ The Real-Time Unity SceneManager is a utility that keeps track of the names of s
 
 Managing scene names in Unity can be a daunting task. To help alleviate this, I have created a package that automates the process of fetching all scenes that have been added to the build and provides code completion for them. This package simplifies scene management, making it more accessible to beginners and reducing the likelihood of errors in scene naming.
 
+**Example-**
+
+
+Here's an example in C# that demonstrates the difference between using `UnityEngine.SceneManagement` and `Randoms.SceneManager` to load a scene. When using `UnityEngine.SceneManagement`, the scene name is passed as a string, which is case-sensitive and prone to errors if the actual scene name is different or if the scene name is changed in the Unity editor. 
+
+However, when using `Randoms.SceneManager`, the scene name is accessed via an enum called SceneName, which is synced with the actual scene name and provides code completion for scenes that are in build. Additionally, if the scene name is not found, an error will be thrown.
+> Since spaces cannot be used in enum names. Therefore, all blank spaces will be replaced with underscores when using the enum..
+
+```c#
+// Load scene using UnityEngine.SceneManagement
+SceneManager.LoadScene("myScene"); // potential errors due to string comparison
+
+// Load scene using Randoms.SceneManager
+SceneLoaderManager.LoadScene(SceneLoaderManager.SceneName.MyScene); // synced with actual scene name, error handling and code completion provided by the enum
+```
+
 ## Usage
 
 - import package
