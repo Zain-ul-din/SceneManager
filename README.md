@@ -25,7 +25,7 @@ However, when using `Randoms.SceneManager`, the scene name is accessed via an en
 
 ```c#
 // Load scene using UnityEngine.SceneManagement
-SceneManager.LoadScene("myScene"); // potential errors due to string comparison
+SceneManager.LoadScene("myscene"); // potential errors due to string comparison
 
 // Load scene using Randoms.SceneManager
 SceneLoaderManager.LoadScene(SceneLoaderManager.SceneName.MyScene); // synced with actual scene name, error handling and code completion provided by the enum
