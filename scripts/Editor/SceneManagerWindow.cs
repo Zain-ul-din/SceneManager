@@ -64,9 +64,9 @@ namespace Randoms.SceneManagerEditorWindow
         EditorWindow window = GetWindow(typeof(SceneManagerWindow),drawFixedWindow,"Scene Manager");
         window.Show();
       }
-
+      
       /// <summary>
-      /// reloads project
+      /// Reloads project
       /// </summary>
       [MenuItem ("Randoms/Reload #r")]
       private static void ReloadProject ()
@@ -190,7 +190,7 @@ namespace Randoms.SceneManagerEditorWindow
         string newSceneNameEnum = "";
         foreach (string path in SceneManagerUtil.BuildScenesPath()) 
          newSceneNameEnum += "   " + SceneManagerUtil.GetSceneName (path) + ",\n";
-        newSceneNameEnum.Remove (newSceneNameEnum.Length - 1); 
+        if(newSceneNameEnum.Length > 0) newSceneNameEnum.Remove (newSceneNameEnum.Length - 1); 
         SceneManagerUtil.UpdateSceneLoaderScript (scriptPath, newSceneNameEnum);
       }
       
