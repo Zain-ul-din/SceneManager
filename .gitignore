@@ -72,4 +72,7 @@ crashlytics-build.properties
 
 
 #ignore all meta
-*.meta
+*.
+
+
+# SceneManager is a Unity scene management package that keeps your code in sync with Unity scenes and provides a user-friendly interface for seamless scene switching.

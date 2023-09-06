@@ -1,4 +1,4 @@
-namespace Randoms.SceneManger
+namespace Randoms.SceneManager
 {
     using UnityEngine;
 
@@ -11,13 +11,13 @@ namespace Randoms.SceneManger
         /// Loads New Scene
         /// </summary>
         /// <param name="sceneName"></param>
-        public static void Load(this SceneLoaderManager.SceneName sceneName) => SceneLoaderManager.LoadScene(sceneName);
+        public static void Load(this Scene sceneName) => SceneManager.LoadScene(sceneName);
 
         /// <summary>
         /// Loads Scene in the background without pausing the game
         /// </summary>
         /// <param name="sceneName">sceneName</param>
-        public static void LoadAsync(this SceneLoaderManager.SceneName sceneName) => SceneLoaderManager.LoadAsync(sceneName);
+        public static void LoadAsync(this Scene sceneName) => SceneManager.LoadAsync(sceneName);
 
         /// <summary>
         /// Loads Scene in the background without pausing the game.
@@ -33,9 +33,9 @@ namespace Randoms.SceneManger
         /// <param name="progressCallback">progressCallBack</param>
         /// <param name="handler">handler</param>
         public static void LoadAsync(
-            this SceneLoaderManager.SceneName sceneName,
+            this Scene sceneName,
             System.Action<float> progressCallback,
             System.Action<AsyncOperation> handler = null
-        ) => SceneLoaderManager.LoadAsync(sceneName, progressCallback, handler);
+        ) => SceneManager.LoadAsync(sceneName, progressCallback, handler);
     }
 }

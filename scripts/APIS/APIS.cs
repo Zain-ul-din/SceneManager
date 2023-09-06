@@ -1,28 +1,28 @@
-namespace Randoms.SceneManger
+namespace Randoms.SceneManager
 {
     using UnityEngine;
-    using UnityEngine.SceneManagement;
 
     /// <summary>
     /// Partial class of SceneLoaderManager Provides public APIS
     /// </summary>
-    public partial class SceneLoaderManager
+    public partial class SceneManager
     {
         #region PUBLIC_APIS
+
 
         /// <summary>
         /// Loads New Scene
         /// </summary>
         /// <param name="sceneName">sceneName</param>
-        public static void LoadScene(SceneName sceneName)
+        public static void LoadScene(Scene scene)
         {
-            if (System.Enum.GetValues(typeof(SceneName)).Length == 0)
+            if (System.Enum.GetValues(typeof(Scene)).Length == 0)
             {
                 Debug.LogError("No Scene Added. Open 'SceneManager' window to add new scene");
                 return;
             }
 
-            SceneManager.LoadScene(sceneName.ToString());
+            UnityEngine.SceneManagement.SceneManager.LoadScene(scene.ToString());
         }
 
         /// <summary>
@@ -31,16 +31,16 @@ namespace Randoms.SceneManger
         /// <returns>string</returns>
         public static string GetCurrentSceneName()
         {
-            return SceneManager.GetActiveScene().name;
+            return UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
         }
 
         /// <summary>
         /// Loads Scene in the background without pausing the game
         /// </summary>
         /// <param name="sceneName">sceneName</param>
-        public static void LoadAsync(SceneName sceneName)
+        public static void LoadAsync(Scene scene)
         {
-            var asyncOperation = PrepareAsyncLoad(sceneName.ToString());
+            var asyncOperation = PrepareAsyncLoad(scene.ToString());
 
             while (!asyncOperation.isDone)
             {
@@ -64,12 +64,12 @@ namespace Randoms.SceneManger
         /// <param name="progressCallback">progressCallBack</param>
         /// <param name="handler">handler</param>
         public static void LoadAsync(
-            SceneName sceneName,
+            Scene scene,
             System.Action<float> progressCallback,
             System.Action<AsyncOperation> handler = null
         )
         {
-            var asyncOperation = PrepareAsyncLoad(sceneName.ToString());
+            var asyncOperation = PrepareAsyncLoad(scene.ToString());
 
             while (!asyncOperation.isDone)
             {
@@ -91,7 +91,7 @@ namespace Randoms.SceneManger
 
         private static AsyncOperation PrepareAsyncLoad(string sceneName)
         {
-            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName);
+            AsyncOperation asyncOperation = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneName);
             Application.backgroundLoadingPriority = ThreadPriority.High;
             asyncOperation.allowSceneActivation = false;
             return asyncOperation;
